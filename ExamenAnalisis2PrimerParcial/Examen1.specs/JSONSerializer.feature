@@ -7,4 +7,4 @@
 Scenario: Return Empty JSON
 	Given I have an empty Class
 	When I press serialize
-	Then the result should be {}
+	Then the result should be "{}"

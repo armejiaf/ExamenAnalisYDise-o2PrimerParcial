@@ -60,6 +60,7 @@
       <DependentUpon>JSONSerializer.feature</DependentUpon>
     </Compile>
     <Compile Include="JSONSerializerSteps.cs" />
+    <Compile Include="People.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +70,12 @@
       <LastGenOutput>JSONSerializer.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial.csproj">
+      <Project>{e4a9b60f-bdc7-42f5-bc0c-a8d5b7d85a10}</Project>
+      <Name>ExamenAnalisis2PrimerParcial</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

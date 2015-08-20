@@ -4,3 +4,4 @@ C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAn
 C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\bin\Debug\ExamenAnalisis2PrimerParcial.pdb
 C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\obj\Debug\ExamenAnalisis2PrimerParcial.exe
 C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\obj\Debug\ExamenAnalisis2PrimerParcial.pdb
+C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\obj\Debug\ExamenAnalisis2PrimerParcial.csprojResolveAssemblyReference.cache
