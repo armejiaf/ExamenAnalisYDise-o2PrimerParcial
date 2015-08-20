@@ -1,0 +1,6 @@
+C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\Examen1.specs.dll.config
+C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\Examen1.specs.dll
+C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\Examen1.specs.pdb
+C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\obj\Debug\Examen1.specs.dll
+C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\obj\Debug\Examen1.specs.pdb
