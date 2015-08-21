@@ -102,7 +102,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 16
-        testRunner.Then("the result should be \"{\'Name\':\'Allan\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'Name\' : \'Allan\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -120,7 +120,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 21
-        testRunner.Then("the result should be \"{\'ID\':3}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'ID\' : \'3\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -138,7 +138,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 25
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
-  testRunner.Then("the result should be \"{\'Salary\':10000.32}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("the result should be \"{\'Salary\' : \'10000.32\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -156,7 +156,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 30
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 31
-        testRunner.Then("the result should be \"{\'Birthday\':\'2012-04-23T18:25:43.511Z\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'Birthday\' : \'4/23/2012 6:26:32 PM\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -180,8 +180,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 39
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 40
-        testRunner.Then("the result should be \"{\'Name\':\'Allan\', \'ID\':3, \'Salary\':10000.32, \'Birthday\':\'201" +
-                    "2-04-23T18:25:43.511Z\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'Name\' : \'Allan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Birt" +
+                    "hday\' : \'2012-04-23T18:25:43.511Z\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -217,7 +217,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 50
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 51
-        testRunner.Then("the result should be \"{\'MyClassArray\':[{},{}]}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'MyClassArray\' : [{},{}]}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -235,7 +235,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 55
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 56
-        testRunner.Then("the result should be \"{{\'MyStringArray\':[\'1\',\'2\',\'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\',\'2\',\'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -253,7 +253,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 60
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 61
-        testRunner.Then("the result should be \"{{\'MyStringArray\':[1,2,3]}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\',\'2\',\'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

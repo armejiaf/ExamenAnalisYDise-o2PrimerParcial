@@ -13,22 +13,22 @@ Scenario: Return Empty JSON
 Scenario: Return String Attribute JSON
         Given I have a class with a string  Name with value "Allan"
         When I serialize
-        Then the result should be "{'Name':'Allan'}"
+        Then the result should be "{'Name' : 'Allan'}"
  
 Scenario: Return int Attribute JSON
         Given I have a class with an int ID with value 3
         When I serialize
-        Then the result should be "{'ID':3}"
+        Then the result should be "{'ID' : '3'}"
        
 Scenario: Return float Attribute JSON
         Given I have a class with a float Salary with value 10000.32
         When I serialize
-		Then the result should be "{'Salary':10000.32}"
+		Then the result should be "{'Salary' : '10000.32'}"
  
 Scenario: Return DateTime Attribute JSON
         Given I have a class with a Date Birthday with value "1335205592410"
         When I serialize
-        Then the result should be "{'Birthday':'2012-04-23T18:25:43.511Z'}"
+        Then the result should be "{'Birthday' : '4/23/2012 6:26:32 PM'}"
  
 #Test with all basic types
 Scenario: Return String, int, float and TimeDate Attributes JSON
@@ -37,7 +37,7 @@ Scenario: Return String, int, float and TimeDate Attributes JSON
         And I have a class with a float Salary with value 10000.32
         And I have a class with a Date Birthday with value "1335205592410"
         When I serialize
-        Then the result should be "{'Name':'Allan', 'ID':3, 'Salary':10000.32, 'Birthday':'2012-04-23T18:25:43.511Z'}"
+        Then the result should be "{'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '2012-04-23T18:25:43.511Z'}"
        
 #arrays, inner classes, inner classes with arrays
 Scenario: Return Empty inner class JSON
@@ -48,14 +48,14 @@ Scenario: Return Empty inner class JSON
 Scenario: Return Empty inner class' class array JSON
         Given I have a class with an empty class array MyClassArray
         When I serialize
-        Then the result should be "{'MyClassArray':[{},{}]}"
+        Then the result should be "{'MyClassArray' : [{},{}]}"
  
 Scenario: Return inner class' string array JSON
         Given I have a class with an inner class that contains a String array MyStringArray
         When I serialize
-        Then the result should be "{{'MyStringArray':['1','2','3']}}"
+        Then the result should be "{{'MyStringArray' : ['1','2','3']}}"
  
 Scenario: Return inner class' int array JSON
         Given I have a class with an inner class that contains an int array MyIntArray
         When I serialize
-        Then the result should be "{{'MyStringArray':[1,2,3]}}"
+        Then the result should be "{{'MyStringArray' : ['1','2','3']}}"
