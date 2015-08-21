@@ -19,16 +19,32 @@ namespace ExamenAnalisis2PrimerParcial
         {
             string serializedObject = "{\n";
             var objectProperties = classobject.GetType().GetProperties(BindingFlags.Public);
+            var objectFields = classobject.GetType().GetFields(BindingFlags.Public);
             foreach (var propertyInfo in objectProperties)
             {
-                //need to tell classes and IEnumerables apart from the rest of the accepted data types.
-                if (_acceptedDataTypes.Contains(propertyInfo.PropertyType))
-                    serializedObject += "\"" + propertyInfo.Name + "\" : \"" + propertyInfo.GetValue(classobject) + "\",\n";
-                else if (propertyInfo is IEnumerable)
-                    ;
+                serializedObject = SerializeElement(classobject, propertyInfo, serializedObject);
             }
             serializedObject += "}";
             return serializedObject;
+        }
+
+        private string SerializeElement(Object classobject, PropertyInfo propertyInfo, string json)
+        {
+            if (propertyInfo == null)
+            {
+                json += "\"" + classobject + "\",\n";
+                return json;
+            }
+            if (_acceptedDataTypes.Contains(propertyInfo.PropertyType))
+                json += "\"" + propertyInfo.Name + "\" : \"" + propertyInfo.GetValue(classobject) + "\",\n";
+            else if (propertyInfo.GetValue(classobject) is IEnumerable)
+            {
+                foreach (var element in (IEnumerable)propertyInfo.GetValue(classobject))
+                {
+                    SerializeElement(element, null, json);
+                }
+            }
+            return json;
         }
     }
 }
