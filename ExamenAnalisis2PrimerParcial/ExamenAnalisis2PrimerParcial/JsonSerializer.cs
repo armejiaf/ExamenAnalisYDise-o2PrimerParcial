@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace ExamenAnalisis2PrimerParcial
@@ -18,17 +19,29 @@ namespace ExamenAnalisis2PrimerParcial
         public string Serialize(Object classobject)
         {
             string serializedObject = "{\n";
-            var objectProperties = classobject.GetType().GetProperties(BindingFlags.Public);
-            var objectFields = classobject.GetType().GetFields(BindingFlags.Public);
-            foreach (var propertyInfo in objectProperties)
+            if (_acceptedDataTypes.Contains(classobject.GetType()))
             {
-                serializedObject = SerializeElement(classobject, propertyInfo, serializedObject);
+                serializedObject += "\t\"" + classobject + "\",\n}";
+                return serializedObject;
             }
-            serializedObject += "}";
+            
+            if(!classobject.GetType().IsPrimitive)
+            {
+                var objectProperties = classobject.GetType().GetProperties(BindingFlags.Public);
+                var objectFields = classobject.GetType().GetFields(BindingFlags.Public);
+                serializedObject = objectProperties.Aggregate(serializedObject, (current, propertyInfo) => SerializeProperty(classobject, propertyInfo, current));
+                serializedObject = objectFields.Aggregate(serializedObject, (current, fieldInfo) => SerializeField(classobject, fieldInfo, current));
+                serializedObject += "}";
+            }
             return serializedObject;
         }
 
-        private string SerializeElement(Object classobject, PropertyInfo propertyInfo, string json)
+        private string SerializeField(Object classobject, FieldInfo propertyInfo, string json)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string SerializeProperty(Object classobject, PropertyInfo propertyInfo, string json)
         {
             if (propertyInfo == null)
             {
@@ -41,7 +54,7 @@ namespace ExamenAnalisis2PrimerParcial
             {
                 foreach (var element in (IEnumerable)propertyInfo.GetValue(classobject))
                 {
-                    SerializeElement(element, null, json);
+                    SerializeProperty(element, null, json);
                 }
             }
             return json;
