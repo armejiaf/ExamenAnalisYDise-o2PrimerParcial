@@ -12,24 +12,58 @@ namespace Examen1.specs
         JsonSerializer jsonserializer = new JsonSerializer();
         string result;
 
-      
-
-        [Given(@"I have an empty Class")]
-        public void GivenIHaveAnEmptyClass()
+        [When(@"I serialize")]
+        public void WhenISerialize()
         {
-            //ScenarioContext.Current.Pending();
+            ScenarioContext.Current.Pending();
         }
 
-        [When(@"I press serialize")]
-        public void WhenIPressSerialize()
+        [Given(@"I have a class with a string  Name with value ""(.*)""")]
+        public void GivenIHaveAClassWithAStringNameWithValue(string p0)
         {
-            result=jsonserializer.Serialize(new People());
+            ScenarioContext.Current.Pending();
         }
-        
-        [Then(@"the result should be ""(.*)""")]
-        public void ThenTheResultShouldBe(string p0)
+
+        [Given(@"I have a class with an int ID with value (.*)")]
+        public void GivenIHaveAClassWithAnIntIDWithValue(int p0)
         {
-            Assert.AreEqual(p0,result);
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"I have a class with a float Salary with value (.*)")]
+        public void GivenIHaveAClassWithAFloatSalaryWithValue(Decimal p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"I have a class with a Date Birthday with value ""(.*)""")]
+        public void GivenIHaveAClassWithADateBirthdayWithValue(Decimal p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"I have a class with an empty class MyClass")]
+        public void GivenIHaveAClassWithAnEmptyClassMyClass()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"I have a class with an empty class array MyClassArray")]
+        public void GivenIHaveAClassWithAnEmptyClassArrayMyClassArray()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"I have a class with an inner class that contains a String array MyStringArray")]
+        public void GivenIHaveAClassWithAnInnerClassThatContainsAStringArrayMyStringArray()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"I have a class with an inner class that contains an int array MyIntArray")]
+        public void GivenIHaveAClassWithAnInnerClassThatContainsAnIntArrayMyIntArray()
+        {
+            ScenarioContext.Current.Pending();
         }
 
     }

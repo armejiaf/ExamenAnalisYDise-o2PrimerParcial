@@ -7,3 +7,12 @@ C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAn
 C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\obj\Debug\Examen1.specs.csprojResolveAssemblyReference.cache
 C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\ExamenAnalisis2PrimerParcial.exe
 C:\Users\Allan Mejia\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\ExamenAnalisis2PrimerParcial.pdb
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\Examen1.specs.dll.config
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\Examen1.specs.dll
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\Examen1.specs.pdb
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\ExamenAnalisis2PrimerParcial.exe
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\bin\Debug\ExamenAnalisis2PrimerParcial.pdb
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\obj\Debug\Examen1.specs.csprojResolveAssemblyReference.cache
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\obj\Debug\Examen1.specs.dll
+C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\Examen1.specs\obj\Debug\Examen1.specs.pdb
