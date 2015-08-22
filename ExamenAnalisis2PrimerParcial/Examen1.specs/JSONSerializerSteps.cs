@@ -42,7 +42,6 @@ namespace Examen1.specs
         public void GivenIHaveAClassWithADateBirthdayWithValue(Decimal p0)
         {
             _elementToSerialize = new ClassWithBirthday {Birthday = new DateTime(1970,1,1).AddMilliseconds((double)p0)};
-            
         }
 
         [Given(@"I have a class with the following values")]
@@ -69,31 +68,19 @@ namespace Examen1.specs
         [Given(@"I have a class with an empty class array MyClassArray")]
         public void GivenIHaveAClassWithAnEmptyClassArrayMyClassArray()
         {
-            //TODO
             _elementToSerialize = new ClassWithInnerClassArray {MyClassArray = new List <IClass> {new EmptyClass(), new EmptyClass()}};
         }
 
-        [Given(@"I have a class with an inner class that contains a String array MyStringArray")]
-        public void GivenIHaveAClassWithAnInnerClassThatContainsAStringArrayMyStringArray()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"I have a class with an inner class that contains an int array MyIntArray")]
-        public void GivenIHaveAClassWithAnInnerClassThatContainsAnIntArrayMyIntArray()
-        {
-            ScenarioContext.Current.Pending();
-        }
         [Given(@"I have a class with a String array MyStringArray with values ""(.*)"", ""(.*)"", ""(.*)""""")]
         public void GivenIHaveAClassWithAStringArrayMyStringArrayWithValues(int p0, int p1, int p2)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithStringArray {MyStringArray = new[] {p0+"", p1+"", p2+""}};
         }
 
         [Given(@"I have a class with an int array MyIntArray with value (.*), (.*), (.*)""")]
         public void GivenIHaveAClassWithAnIntArrayMyIntArrayWithValue(int p0, int p1, int p2)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithIntArray { MyIntArray = new[] { p0, p1, p2 } };
         }
 
         [Given(@"I have a class with an inner class that contains a String Name with value '(.*)'")]
@@ -136,20 +123,30 @@ namespace Examen1.specs
                     }
                 };
             }
-            
         }
-
 
         [Given(@"I have a class with an inner class that contains a String array MyStringArray with value ""(.*)"", ""(.*)"", ""(.*)""")]
         public void GivenIHaveAClassWithAnInnerClassThatContainsAStringArrayMyStringArrayWithValue(int p0, int p1, int p2)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithInnerClass
+            {
+                MyClass = new ClassWithStringArray {MyStringArray = new[] {p0+"", p1+"", p2+""}}
+            };
         }
 
         [Given(@"I have a class with an inner class that contains an int array MyIntArray with value (.*), (.*), (.*)")]
         public void GivenIHaveAClassWithAnInnerClassThatContainsAnIntArrayMyIntArrayWithValue(int p0, int p1, int p2)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithInnerClass
+            {
+                MyClass = new ClassWithIntArray { MyIntArray = new[] { p0, p1, p2 } }
+            };
+        }
+
+        [Given(@"I have a class with a string Name with value ""(.*)"" and an int ID with value (.*)")]
+        public void GivenIHaveAClassWithAStringNameWithValueAndAnIntIDWithValue(string p0, int p1)
+        {
+            _elementToSerialize = new ClassWithNamedProperties {ID = p1, Name = p0};
         }
 
         [When(@"I serialize")]

@@ -42,12 +42,12 @@ Scenario: Return String, int, float and TimeDate Attributes JSON
 Scenario: Return string array JSON
         Given I have a class with a String array MyStringArray with values "1", "2", "3""
         When I serialize
-        Then the result should be "{'MyStringArray' : ['1','2','3']}"
+        Then the result should be "{'MyStringArray' : ['1', '2', '3']}"
  
 Scenario: Return int array JSON
         Given I have a class with an int array MyIntArray with value 1, 2, 3"
         When I serialize
-        Then the result should be "{'MyStringArray' : ['1','2','3']}"
+        Then the result should be "{'MyIntArray' : ['1', '2', '3']}"
 
 #inner classes, inner classes with arrays
 Scenario: Return Empty inner class JSON
@@ -91,10 +91,14 @@ Scenario: Return String, int, float and TimeDate Attributes of an inner class JS
 Scenario: Return inner class' string array JSON
         Given I have a class with an inner class that contains a String array MyStringArray with value "1", "2", "3"
         When I serialize
-        Then the result should be "{{'MyStringArray' : ['1','2','3']}}"
+        Then the result should be "{{'MyStringArray' : ['1', '2', '3']}}"
  
 Scenario: Return inner class' int array JSON
         Given I have a class with an inner class that contains an int array MyIntArray with value 1, 2, 3
         When I serialize
-        Then the result should be "{{'MyStringArray' : ['1','2','3']}}"
+        Then the result should be "{{'MyIntArray' : ['1', '2', '3']}}"
 
+Scenario: Return Renamed String and Int Attributes JSON
+        Given I have a class with a string Name with value "Allan" and an int ID with value 5
+        When I serialize
+        Then the result should be "{'Nombre' : 'Allan', 'Identificacion' : '5'}"

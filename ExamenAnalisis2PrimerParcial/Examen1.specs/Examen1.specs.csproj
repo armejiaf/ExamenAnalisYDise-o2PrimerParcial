@@ -66,7 +66,10 @@
     <Compile Include="TestClasses\ClassWithInnerClass.cs" />
     <Compile Include="TestClasses\ClassWithInnerClassArray.cs" />
     <Compile Include="TestClasses\ClassWithId.cs" />
+    <Compile Include="TestClasses\ClassWithIntArray.cs" />
+    <Compile Include="TestClasses\ClassWithNamedProperties.cs" />
     <Compile Include="TestClasses\ClassWithSalary.cs" />
+    <Compile Include="TestClasses\ClassWithStringArray.cs" />
     <Compile Include="TestClasses\EmptyClass.cs" />
     <Compile Include="TestClasses\IClass.cs" />
     <Compile Include="TestClasses\People.cs" />

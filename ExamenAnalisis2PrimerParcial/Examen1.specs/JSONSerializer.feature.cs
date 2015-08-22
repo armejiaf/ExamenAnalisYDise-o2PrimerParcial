@@ -204,7 +204,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 44
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 45
-        testRunner.Then("the result should be \"{\'MyStringArray\' : [\'1\',\'2\',\'3\']}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'MyStringArray\' : [\'1\', \'2\', \'3\']}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -222,7 +222,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 50
-        testRunner.Then("the result should be \"{\'MyStringArray\' : [\'1\',\'2\',\'3\']}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'MyIntArray\' : [\'1\', \'2\', \'3\']}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -381,7 +381,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 93
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 94
-        testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\',\'2\',\'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\', \'2\', \'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -400,7 +400,25 @@ this.ScenarioSetup(scenarioInfo);
 #line 98
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 99
-        testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\',\'2\',\'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'MyIntArray\' : [\'1\', \'2\', \'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Return Renamed String and Int Attributes JSON")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "JSONSerializer")]
+        public virtual void ReturnRenamedStringAndIntAttributesJSON()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return Renamed String and Int Attributes JSON", ((string[])(null)));
+#line 101
+this.ScenarioSetup(scenarioInfo);
+#line 102
+        testRunner.Given("I have a class with a string Name with value \"Allan\" and an int ID with value 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 103
+        testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 104
+        testRunner.Then("the result should be \"{\'Nombre\' : \'Allan\', \'Identificacion\' : \'5\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
