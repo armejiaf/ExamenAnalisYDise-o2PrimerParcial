@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen1.specs.TestClasses
 {
-    public class ClassWithId
+    public class ClassWithId:IClass
     {
         public int ID { get; set; }
     }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Examen1.specs.TestClasses
 {
-    public class ClassWithEmptyClass
+    public class ClassWithInnerClass
     {
-        public EmptyClass MyClass { get; set; }
+        public IClass MyClass { get; set; }
     }
 }

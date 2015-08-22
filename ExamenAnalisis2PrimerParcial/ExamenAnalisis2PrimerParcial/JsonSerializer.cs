@@ -67,28 +67,41 @@ namespace ExamenAnalisis2PrimerParcial
             }
             return json;
         }*/
-        public string Serialize(Object classobject)
+        public string Serialize(Object classObject)
         {
-            string serializedObject = "{";
-            if (_acceptedDataTypes.Contains(classobject.GetType()))
+            var serializedObject = SerializeObject(classObject);
+            return serializedObject;
+        }
+
+        private string SerializeObject(object classObject)
+        {
+            var serializedObject = "{";
+            var classType = classObject.GetType();
+
+            if (_acceptedDataTypes.Contains(classType))
             {
-                serializedObject += "'" + (String.IsNullOrEmpty("" + classobject) ? "null" : classobject) + "', ";
+                serializedObject += "'" + (String.IsNullOrEmpty("" + classObject) ? "null" : classObject) + "', ";
             }
-            else if (!classobject.GetType().IsPrimitive && !(classobject.GetType() == typeof(IEnumerable<>)))
+            else if (!classType.IsPrimitive && !(classType == typeof(IEnumerable<>)))
             {
-                Type t = classobject.GetType();
-                var objectProperties = classobject.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-                var objectFields = classobject.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
-                serializedObject = objectProperties.Aggregate(serializedObject, (current, propertyInfo) => SerializeProperty(classobject, propertyInfo, current));
-                serializedObject = objectFields.Aggregate(serializedObject, (current, fieldInfo) => SerializeField(classobject, fieldInfo, current));
+                var objectProperties = classType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                var objectFields = classType.GetFields(BindingFlags.Public | BindingFlags.Instance);
+                serializedObject = objectProperties.Aggregate(serializedObject,
+                    (current, propertyInfo) => SerializeProperty(classObject, propertyInfo, current));
+                serializedObject = objectFields.Aggregate(serializedObject,
+                    (current, fieldInfo) => SerializeField(classObject, fieldInfo, current));
             }
-            else if (classobject.GetType() == typeof(IEnumerable<>))
+            else if (classType == typeof (IEnumerable<>))
             {
-                serializedObject = ((IEnumerable)classobject).Cast<object>().Aggregate(serializedObject, (current, element) => current + Serialize(element));
+                serializedObject = ((IEnumerable) classObject).Cast<object>()
+                    .Aggregate(serializedObject, (current, element) => current + Serialize(element));
             }
-            if(serializedObject.Contains(","))
+
+            if (serializedObject.Contains(","))
                 serializedObject = serializedObject.Remove(serializedObject.LastIndexOf(", "), 2);
+            
             serializedObject += "}";
+
             return serializedObject;
         }
 
@@ -97,13 +110,13 @@ namespace ExamenAnalisis2PrimerParcial
             if (_acceptedDataTypes.Contains(fieldInfo.FieldType))
                 json += "'" + fieldInfo.Name + "' : '" +
                     (String.IsNullOrEmpty("" + fieldInfo.GetValue(classobject)) ? "null" : fieldInfo.GetValue(classobject)) + "', ";
-            else if (fieldInfo.GetType() == typeof(IEnumerable<>))
+            else if (fieldInfo.GetType().GetInterfaces().Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
             {
                 json = ((IEnumerable)fieldInfo.GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element));
             }
             else if (!fieldInfo.GetType().IsPrimitive)
             {
-                json += Serialize(fieldInfo.GetValue(classobject));
+                json += Serialize(fieldInfo.GetValue(classobject))+", ";
             }
             return json;
         }
@@ -113,13 +126,13 @@ namespace ExamenAnalisis2PrimerParcial
             if (_acceptedDataTypes.Contains(propertyInfo.PropertyType))
                 json += "'" + propertyInfo.Name + "' : '" +
                     (String.IsNullOrEmpty(""+propertyInfo.GetValue(classobject)) ? "null" : propertyInfo.GetValue(classobject)) + "', ";
-            else if (propertyInfo.GetType() == typeof(IEnumerable<>))
+            else if (propertyInfo.GetType().GetInterfaces().Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
             {
                 json = ((IEnumerable)propertyInfo.GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element));
             }
             else if (!propertyInfo.GetType().IsPrimitive)
             {
-                json += Serialize(propertyInfo.GetValue(classobject));
+                json += Serialize(propertyInfo.GetValue(classobject))+", ";
             }
             return json;
         }

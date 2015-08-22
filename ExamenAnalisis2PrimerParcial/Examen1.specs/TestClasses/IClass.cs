@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen1.specs.TestClasses
 {
-    public class ClassWithSalary:IClass
+    public interface IClass
     {
-        public float Salary { get; set; }
     }
 }

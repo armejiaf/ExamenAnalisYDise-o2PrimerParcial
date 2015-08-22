@@ -63,11 +63,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestClasses\ClassWithBasicTypes.cs" />
     <Compile Include="TestClasses\ClassWithBirthday.cs" />
-    <Compile Include="TestClasses\ClassWithEmptyClass.cs" />
-    <Compile Include="TestClasses\ClassWithEmptyClassArray.cs" />
+    <Compile Include="TestClasses\ClassWithInnerClass.cs" />
+    <Compile Include="TestClasses\ClassWithInnerClassArray.cs" />
     <Compile Include="TestClasses\ClassWithId.cs" />
     <Compile Include="TestClasses\ClassWithSalary.cs" />
     <Compile Include="TestClasses\EmptyClass.cs" />
+    <Compile Include="TestClasses\IClass.cs" />
     <Compile Include="TestClasses\People.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Examen1.specs.TestClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -26,7 +27,7 @@ namespace Examen1.specs
         }
 
         [Given(@"I have a class with an int ID with value (.*)")]
-        public void GivenIHaveAClassWithAnIntIDWithValue(int p0)
+        public void GivenIHaveAClassWithAnIntIdWithValue(int p0)
         {
             _elementToSerialize = new ClassWithId {ID = p0};
         }
@@ -40,34 +41,36 @@ namespace Examen1.specs
         [Given(@"I have a class with a Date Birthday with value ""(.*)""")]
         public void GivenIHaveAClassWithADateBirthdayWithValue(Decimal p0)
         {
-            _elementToSerialize = new ClassWithBirthday {Birthday = new DateTime(1970,1,1)};
-            ((ClassWithBirthday)_elementToSerialize).Birthday = ((ClassWithBirthday)_elementToSerialize).Birthday.AddMilliseconds((double)p0);
+            _elementToSerialize = new ClassWithBirthday {Birthday = new DateTime(1970,1,1).AddMilliseconds((double)p0)};
+            
         }
 
         [Given(@"I have a class with the following values")]
         public void GivenIHaveAClassWithTheFollowingValues(Table table)
         {
-            _elementToSerialize = new ClassWithBasicTypes
+            foreach (var tableRow in table.Rows)
             {
-                Name = "Allan",
-                ID = 3,
-                Salary = 10000.32f,
-                Birthday = new DateTime(1970, 1, 1)
-            };
-            ((ClassWithBasicTypes)_elementToSerialize).Birthday = ((ClassWithBasicTypes)_elementToSerialize).Birthday.AddMilliseconds(1335205592410);
+                _elementToSerialize = new ClassWithBasicTypes
+                {
+                    Name = tableRow["Name"],
+                    ID = int.Parse(tableRow["ID"]),
+                    Salary = float.Parse(tableRow["Salary"]),
+                    Birthday = new DateTime(1970, 1, 1).AddMilliseconds(double.Parse(tableRow["Birthday"]))
+                };
+            }
         }
 
         [Given(@"I have a class with an empty class MyClass")]
         public void GivenIHaveAClassWithAnEmptyClassMyClass()
         {
-            _elementToSerialize = new ClassWithEmptyClass{MyClass = new EmptyClass()};
+            _elementToSerialize = new ClassWithInnerClass{MyClass = new EmptyClass()};
         }
 
         [Given(@"I have a class with an empty class array MyClassArray")]
         public void GivenIHaveAClassWithAnEmptyClassArrayMyClassArray()
         {
-            ScenarioContext.Current.Pending();
-            //_elementToSerialize = new ClassWithEmptyClassArray {MyClassArray = new[] {new EmptyClass(), new EmptyClass()}};
+            //TODO
+            _elementToSerialize = new ClassWithInnerClassArray {MyClassArray = new List <IClass> {new EmptyClass(), new EmptyClass()}};
         }
 
         [Given(@"I have a class with an inner class that contains a String array MyStringArray")]
@@ -93,53 +96,49 @@ namespace Examen1.specs
             ScenarioContext.Current.Pending();
         }
 
-        [Given(@"I have a class with an inner class that contains a String MyString with value '(.*)'")]
+        [Given(@"I have a class with an inner class that contains a String Name with value '(.*)'")]
         public void GivenIHaveAClassWithAnInnerClassThatContainsAStringMyStringWithValue(string p0)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithInnerClass { MyClass = new People{Name = p0} };
         }
 
-        [Given(@"I have a class with an inner class that contains an int MyInt with value (.*)")]
+        [Given(@"I have a class with an inner class that contains an int ID with value (.*)")]
         public void GivenIHaveAClassWithAnInnerClassThatContainsAnIntMyIntWithValue(int p0)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithInnerClass { MyClass = new ClassWithId{ ID = p0 } };
         }
 
-        [Given(@"I have a class with an inner class that contains an int MyFloat with value (.*)")]
+        [Given(@"I have a class with an inner class that contains an int Salary with value (.*)")]
         public void GivenIHaveAClassWithAnInnerClassThatContainsAnIntMyFloatWithValue(Decimal p0)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithInnerClass { MyClass = new ClassWithSalary { Salary = (float) p0 } };
         }
 
-        [Given(@"I have a class with an inner class that contains an int MyTimeDate with value (.*)")]
+        [Given(@"I have a class with an inner class that contains a Date Birthday with value (.*)")]
         public void GivenIHaveAClassWithAnInnerClassThatContainsAnIntMyTimeDateWithValue(Decimal p0)
         {
-            ScenarioContext.Current.Pending();
+            _elementToSerialize = new ClassWithInnerClass{MyClass = new ClassWithBirthday {Birthday = new DateTime(1970, 1, 1).AddMilliseconds((double)p0)}};
         }
 
-        [Given(@"I have an inner class with a string  Name with value ""(.*)""")]
-        public void GivenIHaveAnInnerClassWithAStringNameWithValue(string p0)
+        [Given(@"I have an inner class with the following values")]
+        public void GivenIHaveAnInnerClassWithTheFollowingValues(Table table)
         {
-            ScenarioContext.Current.Pending();
+            foreach (var tableRow in table.Rows)
+            {
+                _elementToSerialize = new ClassWithInnerClass
+                {
+                    MyClass = new ClassWithBasicTypes
+                    {
+                        Name = tableRow["Name"],
+                        ID = int.Parse(tableRow["ID"]),
+                        Salary = float.Parse(tableRow["Salary"]),
+                        Birthday = new DateTime(1970, 1, 1).AddMilliseconds(double.Parse(tableRow["Birthday"]))
+                    }
+                };
+            }
+            
         }
 
-        [Given(@"I have an inner class with an int ID with value (.*)")]
-        public void GivenIHaveAnInnerClassWithAnIntIDWithValue(int p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"I have an inner class with a float Salary with value (.*)")]
-        public void GivenIHaveAnInnerClassWithAFloatSalaryWithValue(Decimal p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"I have an inner class with a Date Birthday with value ""(.*)""")]
-        public void GivenIHaveAnInnerClassWithADateBirthdayWithValue(Decimal p0)
-        {
-            ScenarioContext.Current.Pending();
-        }
 
         [Given(@"I have a class with an inner class that contains a String array MyStringArray with value ""(.*)"", ""(.*)"", ""(.*)""")]
         public void GivenIHaveAClassWithAnInnerClassThatContainsAStringArrayMyStringArrayWithValue(int p0, int p1, int p2)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen1.specs.TestClasses
 {
-    public class ClassWithBirthday
+    public class ClassWithBirthday:IClass
     {
         public DateTime Birthday { get; set; }
     }

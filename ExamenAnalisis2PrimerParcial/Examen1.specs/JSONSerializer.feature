@@ -61,32 +61,31 @@ Scenario: Return Empty inner class' class array JSON
         Then the result should be "{'MyClassArray' : [{},{}]}"
 
 Scenario: Return inner class' string JSON
-        Given I have a class with an inner class that contains a String MyString with value 'Allan'
+        Given I have a class with an inner class that contains a String Name with value 'Allan'
         When I serialize
-        Then the result should be "{{'MyStringArray' : 'Allan'}}"
+        Then the result should be "{{'Name' : 'Allan'}}"
 
 Scenario: Return inner class' int JSON
-        Given I have a class with an inner class that contains an int MyInt with value 4
+        Given I have a class with an inner class that contains an int ID with value 4
         When I serialize
-        Then the result should be "{{'MyInt' : '4'}}"
+        Then the result should be "{{'ID' : '4'}}"
 
 Scenario: Return inner class' Float JSON
-        Given I have a class with an inner class that contains an int MyFloat with value 444.4
+        Given I have a class with an inner class that contains an int Salary with value 444.4
         When I serialize
-        Then the result should be "{{'MyFloat' : '444.4'}}"
+        Then the result should be "{{'Salary' : '444.4'}}"
 
 Scenario: Return inner class' DateTime JSON
-        Given I have a class with an inner class that contains an int MyTimeDate with value 1335205592410
+        Given I have a class with an inner class that contains a Date Birthday with value 1335205592410
         When I serialize
-        Then the result should be "{{'MyTimeDate' : '4/23/2012 6:26:32 PM'}}"
+        Then the result should be "{{'Birthday' : '4/23/2012 6:26:32 PM'}}"
 
 Scenario: Return String, int, float and TimeDate Attributes of an inner class JSON
-        Given I have an inner class with a string  Name with value "Allan"
-        And I have an inner class with an int ID with value 3
-        And I have an inner class with a float Salary with value 10000.32
-        And I have an inner class with a Date Birthday with value "1335205592410"
+         Given I have an inner class with the following values
+		| Name  | ID | Salary   | Birthday      |
+		| Allan | 3  | 10000.32 | 1335205592410 |
         When I serialize
-        Then the result should be "{{'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '2012-04-23T18:25:43.511Z'}}"
+        Then the result should be "{{'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '4/23/2012 6:26:32 PM'}}"
   
  
 Scenario: Return inner class' string array JSON

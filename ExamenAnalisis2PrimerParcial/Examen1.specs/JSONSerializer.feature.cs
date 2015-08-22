@@ -272,12 +272,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 63
 this.ScenarioSetup(scenarioInfo);
 #line 64
-        testRunner.Given("I have a class with an inner class that contains a String MyString with value \'Al" +
-                    "lan\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("I have a class with an inner class that contains a String Name with value \'Allan\'" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 65
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 66
-        testRunner.Then("the result should be \"{{\'MyStringArray\' : \'Allan\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'Name\' : \'Allan\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -291,11 +291,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 68
 this.ScenarioSetup(scenarioInfo);
 #line 69
-        testRunner.Given("I have a class with an inner class that contains an int MyInt with value 4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("I have a class with an inner class that contains an int ID with value 4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 70
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 71
-        testRunner.Then("the result should be \"{{\'MyInt\' : \'4\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'ID\' : \'4\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -309,11 +309,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 73
 this.ScenarioSetup(scenarioInfo);
 #line 74
-        testRunner.Given("I have a class with an inner class that contains an int MyFloat with value 444.4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("I have a class with an inner class that contains an int Salary with value 444.4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 75
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 76
-        testRunner.Then("the result should be \"{{\'MyFloat\' : \'444.4\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'Salary\' : \'444.4\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -327,12 +327,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 78
 this.ScenarioSetup(scenarioInfo);
 #line 79
-        testRunner.Given("I have a class with an inner class that contains an int MyTimeDate with value 133" +
-                    "5205592410", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("I have a class with an inner class that contains a Date Birthday with value 13352" +
+                    "05592410", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 80
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 81
-        testRunner.Then("the result should be \"{{\'MyTimeDate\' : \'4/23/2012 6:26:32 PM\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'Birthday\' : \'4/23/2012 6:26:32 PM\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -345,19 +345,24 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return String, int, float and TimeDate Attributes of an inner class JSON", ((string[])(null)));
 #line 83
 this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "ID",
+                        "Salary",
+                        "Birthday"});
+            table2.AddRow(new string[] {
+                        "Allan",
+                        "3",
+                        "10000.32",
+                        "1335205592410"});
 #line 84
-        testRunner.Given("I have an inner class with a string  Name with value \"Allan\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 85
-        testRunner.And("I have an inner class with an int ID with value 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 86
-        testRunner.And("I have an inner class with a float Salary with value 10000.32", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+         testRunner.Given("I have an inner class with the following values", ((string)(null)), table2, "Given ");
 #line 87
-        testRunner.And("I have an inner class with a Date Birthday with value \"1335205592410\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 88
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 89
+#line 88
         testRunner.Then("the result should be \"{{\'Name\' : \'Allan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Bir" +
-                    "thday\' : \'2012-04-23T18:25:43.511Z\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                    "thday\' : \'4/23/2012 6:26:32 PM\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -368,14 +373,14 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ReturnInnerClassStringArrayJSON()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return inner class\' string array JSON", ((string[])(null)));
-#line 92
+#line 91
 this.ScenarioSetup(scenarioInfo);
-#line 93
+#line 92
         testRunner.Given("I have a class with an inner class that contains a String array MyStringArray wit" +
                     "h value \"1\", \"2\", \"3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 94
+#line 93
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 95
+#line 94
         testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\',\'2\',\'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -387,14 +392,14 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ReturnInnerClassIntArrayJSON()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return inner class\' int array JSON", ((string[])(null)));
-#line 97
+#line 96
 this.ScenarioSetup(scenarioInfo);
-#line 98
+#line 97
         testRunner.Given("I have a class with an inner class that contains an int array MyIntArray with val" +
                     "ue 1, 2, 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 99
+#line 98
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 100
+#line 99
         testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\',\'2\',\'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

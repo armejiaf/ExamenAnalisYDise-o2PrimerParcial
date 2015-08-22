@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen1.specs.TestClasses
 {
-    public class ClassWithBasicTypes
+    public class ClassWithBasicTypes:IClass
     {
         public string Name { get; set; }
         public int ID { get; set; }
