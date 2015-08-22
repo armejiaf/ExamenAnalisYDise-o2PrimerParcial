@@ -258,7 +258,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 60
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 61
-        testRunner.Then("the result should be \"{\'MyClassArray\' : [{},{}]}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'MyClassArray\' : [{}, {}]}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

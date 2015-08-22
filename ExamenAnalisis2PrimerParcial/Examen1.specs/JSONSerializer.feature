@@ -58,7 +58,7 @@ Scenario: Return Empty inner class JSON
 Scenario: Return Empty inner class' class array JSON
         Given I have a class with an empty class array MyClassArray
         When I serialize
-        Then the result should be "{'MyClassArray' : [{},{}]}"
+        Then the result should be "{'MyClassArray' : [{}, {}]}"
 
 Scenario: Return inner class' string JSON
         Given I have a class with an inner class that contains a String Name with value 'Allan'
