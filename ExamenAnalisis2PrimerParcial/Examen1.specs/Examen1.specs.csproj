@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="JSONSerializerSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClasses\ClassWithBasicTypes.cs" />
     <Compile Include="TestClasses\ClassWithBirthday.cs" />
     <Compile Include="TestClasses\ClassWithEmptyClass.cs" />
     <Compile Include="TestClasses\ClassWithEmptyClassArray.cs" />

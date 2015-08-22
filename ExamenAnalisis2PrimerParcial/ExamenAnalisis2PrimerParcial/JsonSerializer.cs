@@ -72,7 +72,7 @@ namespace ExamenAnalisis2PrimerParcial
             string serializedObject = "{";
             if (_acceptedDataTypes.Contains(classobject.GetType()))
             {
-                serializedObject += "'" + (String.IsNullOrEmpty("" + classobject) ? "null" : classobject) + "'";
+                serializedObject += "'" + (String.IsNullOrEmpty("" + classobject) ? "null" : classobject) + "', ";
             }
             else if (!classobject.GetType().IsPrimitive && !(classobject.GetType() == typeof(IEnumerable<>)))
             {
@@ -86,6 +86,8 @@ namespace ExamenAnalisis2PrimerParcial
             {
                 serializedObject = ((IEnumerable)classobject).Cast<object>().Aggregate(serializedObject, (current, element) => current + Serialize(element));
             }
+            if(serializedObject.Contains(","))
+                serializedObject = serializedObject.Remove(serializedObject.LastIndexOf(", "), 2);
             serializedObject += "}";
             return serializedObject;
         }
@@ -94,7 +96,7 @@ namespace ExamenAnalisis2PrimerParcial
         {
             if (_acceptedDataTypes.Contains(fieldInfo.FieldType))
                 json += "'" + fieldInfo.Name + "' : '" +
-                    (String.IsNullOrEmpty("" + fieldInfo.GetValue(classobject)) ? "null" : fieldInfo.GetValue(classobject)) + "'";
+                    (String.IsNullOrEmpty("" + fieldInfo.GetValue(classobject)) ? "null" : fieldInfo.GetValue(classobject)) + "', ";
             else if (fieldInfo.GetType() == typeof(IEnumerable<>))
             {
                 json = ((IEnumerable)fieldInfo.GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element));
@@ -110,7 +112,7 @@ namespace ExamenAnalisis2PrimerParcial
         {
             if (_acceptedDataTypes.Contains(propertyInfo.PropertyType))
                 json += "'" + propertyInfo.Name + "' : '" +
-                    (String.IsNullOrEmpty(""+propertyInfo.GetValue(classobject)) ? "null" : propertyInfo.GetValue(classobject)) + "'";
+                    (String.IsNullOrEmpty(""+propertyInfo.GetValue(classobject)) ? "null" : propertyInfo.GetValue(classobject)) + "', ";
             else if (propertyInfo.GetType() == typeof(IEnumerable<>))
             {
                 json = ((IEnumerable)propertyInfo.GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element));

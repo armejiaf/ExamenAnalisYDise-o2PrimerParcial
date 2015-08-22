@@ -32,12 +32,11 @@ Scenario: Return DateTime Attribute JSON
  
 #Test with all basic types
 Scenario: Return String, int, float and TimeDate Attributes JSON
-        Given I have a class with a string  Name with value "Allan"
-        And I have a class with an int ID with value 3
-        And I have a class with a float Salary with value 10000.32
-        And I have a class with a Date Birthday with value "1335205592410"
+        Given I have a class with the following values
+		| Name  | ID | Salary   | Birthday      |
+		| Allan | 3  | 10000.32 | 1335205592410 |
         When I serialize
-        Then the result should be "{'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '2012-04-23T18:25:43.511Z'}"
+        Then the result should be "{'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '4/23/2012 6:26:32 PM'}"
        
 #inner Arrays
 Scenario: Return string array JSON
@@ -76,7 +75,7 @@ Scenario: Return inner class' Float JSON
         When I serialize
         Then the result should be "{{'MyFloat' : '444.4'}}"
 
-Scenario: Return inner class' Float JSON
+Scenario: Return inner class' DateTime JSON
         Given I have a class with an inner class that contains an int MyTimeDate with value 1335205592410
         When I serialize
         Then the result should be "{{'MyTimeDate' : '4/23/2012 6:26:32 PM'}}"
@@ -100,7 +99,3 @@ Scenario: Return inner class' int array JSON
         When I serialize
         Then the result should be "{{'MyStringArray' : ['1','2','3']}}"
 
-Scenario: Return inner class' inner class' string JSON
-        Given I have a class with an inner class that contains a string MyString with value "Allan"
-        When I serialize
-        Then the result should be "{{{'MyString' : 'Allan'}}}"
