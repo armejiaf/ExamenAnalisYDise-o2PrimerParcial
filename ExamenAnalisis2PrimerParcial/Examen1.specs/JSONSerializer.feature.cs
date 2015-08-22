@@ -373,14 +373,14 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ReturnInnerClassStringArrayJSON()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return inner class\' string array JSON", ((string[])(null)));
-#line 91
+#line 90
 this.ScenarioSetup(scenarioInfo);
-#line 92
+#line 91
         testRunner.Given("I have a class with an inner class that contains a String array MyStringArray wit" +
                     "h value \"1\", \"2\", \"3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 93
+#line 92
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 94
+#line 93
         testRunner.Then("the result should be \"{{\'MyStringArray\' : [\'1\', \'2\', \'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -392,14 +392,14 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ReturnInnerClassIntArrayJSON()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return inner class\' int array JSON", ((string[])(null)));
-#line 96
+#line 95
 this.ScenarioSetup(scenarioInfo);
-#line 97
+#line 96
         testRunner.Given("I have a class with an inner class that contains an int array MyIntArray with val" +
                     "ue 1, 2, 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 98
+#line 97
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 99
+#line 98
         testRunner.Then("the result should be \"{{\'MyIntArray\' : [\'1\', \'2\', \'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -411,13 +411,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ReturnRenamedStringAndIntAttributesJSON()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return Renamed String and Int Attributes JSON", ((string[])(null)));
-#line 101
+#line 100
 this.ScenarioSetup(scenarioInfo);
-#line 102
+#line 101
         testRunner.Given("I have a class with a string Name with value \"Allan\" and an int ID with value 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 103
+#line 102
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 104
+#line 103
         testRunner.Then("the result should be \"{\'Nombre\' : \'Allan\', \'Identificacion\' : \'5\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

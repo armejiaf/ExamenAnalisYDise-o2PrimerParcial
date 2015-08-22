@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using Examen1.specs.TestClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
@@ -144,7 +143,7 @@ namespace Examen1.specs
         }
 
         [Given(@"I have a class with a string Name with value ""(.*)"" and an int ID with value (.*)")]
-        public void GivenIHaveAClassWithAStringNameWithValueAndAnIntIDWithValue(string p0, int p1)
+        public void GivenIHaveAClassWithAStringNameWithValueAndAnIntIdWithValue(string p0, int p1)
         {
             _elementToSerialize = new ClassWithNamedProperties {ID = p1, Name = p0};
         }

@@ -18,12 +18,6 @@ namespace ExamenAnalisis2PrimerParcial
 
         public string Serialize(Object classObject)
         {
-            var serializedObject = SerializeObject(classObject, true);
-            return serializedObject;
-        }
-
-        private string SerializeObject(object classObject, bool enableBrackets)
-        {
             var serializedObject = "{";
             var classType = classObject.GetType();
             if (_acceptedDataTypes.Contains(classType))
@@ -31,7 +25,7 @@ namespace ExamenAnalisis2PrimerParcial
                 serializedObject = "'" + (String.IsNullOrEmpty("" + classObject) ? "null" : classObject) + "'";
                 return serializedObject;
             }
-            else if (!classType.IsPrimitive && !(classType == typeof(IEnumerable<>)))
+            if (!classType.IsPrimitive && !(classType == typeof(IEnumerable<>)))
             {
                 MemberInfo[] objectElements =
                     classType.GetFields(BindingFlags.Public | BindingFlags.Instance).Cast<MemberInfo>()
@@ -39,9 +33,9 @@ namespace ExamenAnalisis2PrimerParcial
                 serializedObject = objectElements.Aggregate(serializedObject,
                     (current, elementInfo) => SerializeMember(classObject, elementInfo, current));
             }
-            else if (classType == typeof (IEnumerable<>))
+            else if (classType == typeof(IEnumerable<>))
             {
-                serializedObject = ((IEnumerable) classObject).Cast<object>()
+                serializedObject = ((IEnumerable)classObject).Cast<object>()
                     .Aggregate(serializedObject, (current, element) => current + Serialize(element));
             }
             if (serializedObject.EndsWith(", "))

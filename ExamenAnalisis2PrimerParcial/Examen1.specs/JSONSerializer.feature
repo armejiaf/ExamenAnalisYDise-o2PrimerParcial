@@ -86,7 +86,6 @@ Scenario: Return String, int, float and TimeDate Attributes of an inner class JS
 		| Allan | 3  | 10000.32 | 1335205592410 |
         When I serialize
         Then the result should be "{{'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '4/23/2012 6:26:32 PM'}}"
-  
  
 Scenario: Return inner class' string array JSON
         Given I have a class with an inner class that contains a String array MyStringArray with value "1", "2", "3"
