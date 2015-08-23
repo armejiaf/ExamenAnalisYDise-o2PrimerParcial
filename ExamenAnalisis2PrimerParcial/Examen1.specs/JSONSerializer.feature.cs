@@ -120,7 +120,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 21
-        testRunner.Then("the result should be \"{\'ID\' : \'3\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'ID\' : 3}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -138,7 +138,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 25
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
-  testRunner.Then("the result should be \"{\'Salary\' : \'10000.32\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("the result should be \"{\'Salary\' : 10000.32}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -185,8 +185,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 38
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
-        testRunner.Then("the result should be \"{\'Name\' : \'Allan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Birt" +
-                    "hday\' : \'4/23/2012 6:26:32 PM\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'Name\' : \'Allan\', \'ID\' : 3, \'Salary\' : 10000.32, \'Birthday" +
+                    "\' : \'4/23/2012 6:26:32 PM\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -222,7 +222,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 50
-        testRunner.Then("the result should be \"{\'MyIntArray\' : [\'1\', \'2\', \'3\']}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'MyIntArray\' : [1, 2, 3]}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -295,7 +295,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 70
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 71
-        testRunner.Then("the result should be \"{{\'ID\' : \'4\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'ID\' : 4}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -313,7 +313,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 75
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 76
-        testRunner.Then("the result should be \"{{\'Salary\' : \'444.4\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'Salary\' : 444.4}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -361,8 +361,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 87
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 88
-        testRunner.Then("the result should be \"{{\'Name\' : \'Allan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Bir" +
-                    "thday\' : \'4/23/2012 6:26:32 PM\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'Name\' : \'Allan\', \'ID\' : 3, \'Salary\' : 10000.32, \'Birthda" +
+                    "y\' : \'4/23/2012 6:26:32 PM\'}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -400,7 +400,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 97
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 98
-        testRunner.Then("the result should be \"{{\'MyIntArray\' : [\'1\', \'2\', \'3\']}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{{\'MyIntArray\' : [1, 2, 3]}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -418,7 +418,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 102
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 103
-        testRunner.Then("the result should be \"{\'Nombre\' : \'Allan\', \'Identificacion\' : \'5\'}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'Nombre\' : \'Allan\', \'Identificacion\' : 5}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -447,10 +447,27 @@ this.ScenarioSetup(scenarioInfo);
 #line 109
         testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 110
-        testRunner.Then("the result should be \"{\'Name\' : \'Allan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Birt" +
-                    "hday\' : \'4/23/2012 6:26:32 PM\', \'MyClassArray\' : [{}, {\'ID\' : \'4\'}, {\'Name\' : \'A" +
-                    "llan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Birthday\' : \'4/23/2012 6:26:32 PM\'}]}" +
-                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the result should be \"{\'Name\' : \'Allan\', \'ID\' : 3, \'Salary\' : 10000.32, \'Birthday" +
+                    "\' : \'4/23/2012 6:26:32 PM\', \'MyClassArray\' : [{}, {\'ID\' : 4}, {\'Name\' : \'Allan\'," +
+                    " \'ID\' : 3, \'Salary\' : 10000.32, \'Birthday\' : \'4/23/2012 6:26:32 PM\'}]}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Return int JSON")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "JSONSerializer")]
+        public virtual void ReturnIntJSON()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return int JSON", ((string[])(null)));
+#line 112
+this.ScenarioSetup(scenarioInfo);
+#line 113
+        testRunner.Given("I have a primitive data type int with value 4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 114
+        testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 115
+        testRunner.Then("the result should be \"4\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

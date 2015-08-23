@@ -175,6 +175,11 @@ namespace Examen1.specs
             }
         }
 
+        [Given(@"I have a primitive data type int with value (.*)")]
+        public void GivenIHaveAPrimitiveDataTypeIntWithValue(int p0)
+        {
+            _elementToSerialize = p0;
+        }
 
         [When(@"I serialize")]
         public void WhenISerialize()

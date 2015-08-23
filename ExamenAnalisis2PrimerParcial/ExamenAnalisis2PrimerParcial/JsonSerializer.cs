@@ -16,13 +16,23 @@ namespace ExamenAnalisis2PrimerParcial
             typeof(DateTime)
         };
 
+        private readonly List<Type>  _dataTypesWithQuotes = new List<Type>
+        {
+            typeof(String),
+            typeof(DateTime)
+        };
         public string Serialize(Object classObject)
         {
+            if (classObject == null)
+                return "null";
             var serializedObject = "{";
             var classType = classObject.GetType();
             if (_acceptedDataTypes.Contains(classType))
             {
-                serializedObject = "'" + (String.IsNullOrEmpty("" + classObject) ? "null" : classObject) + "'";
+                if (_dataTypesWithQuotes.Contains(classType))
+                    serializedObject = "'" + classObject + "'";
+                else
+                    serializedObject = classObject + "";
                 return serializedObject;
             }
             if (!classType.IsPrimitive && !(classType == typeof(IEnumerable<>)))
@@ -38,8 +48,7 @@ namespace ExamenAnalisis2PrimerParcial
                 serializedObject = ((IEnumerable)classObject).Cast<object>()
                     .Aggregate(serializedObject, (current, element) => current + Serialize(element));
             }
-            if (serializedObject.EndsWith(", "))
-                serializedObject = serializedObject.Remove(serializedObject.LastIndexOf(", ", StringComparison.Ordinal), 2);
+            serializedObject = TrimCommas(serializedObject);
             serializedObject += "}";
             return serializedObject;
         }
@@ -50,11 +59,18 @@ namespace ExamenAnalisis2PrimerParcial
             var memberName = GetMemberName(memberInfo);
             if (_acceptedDataTypes.Contains(type))
             {
-                json += "'" + memberName + "' : '";
-                if (memberInfo is FieldInfo)
-                    json += (String.IsNullOrEmpty("" + ((FieldInfo)memberInfo).GetValue(classobject)) ? "null" : ((FieldInfo)memberInfo).GetValue(classobject)) + "', ";
+                if (_dataTypesWithQuotes.Contains(type))
+                    json += "'" + memberName + "' : '";
                 else
-                    json += (String.IsNullOrEmpty("" + ((PropertyInfo)memberInfo).GetValue(classobject)) ? "null" : ((PropertyInfo)memberInfo).GetValue(classobject)) + "', ";
+                    json += "'" + memberName + "' : ";
+                if (memberInfo is FieldInfo)
+                    json += (String.IsNullOrEmpty("" + ((FieldInfo)memberInfo).GetValue(classobject)) ? "null" : ((FieldInfo)memberInfo).GetValue(classobject)) + "";
+                else
+                    json += (String.IsNullOrEmpty("" + ((PropertyInfo)memberInfo).GetValue(classobject)) ? "null" : ((PropertyInfo)memberInfo).GetValue(classobject)) + "";
+                if (_dataTypesWithQuotes.Contains(type))
+                    json += "', ";
+                else
+                    json += ", ";
             }
             else if (type.GetInterfaces().Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
             {
@@ -63,8 +79,7 @@ namespace ExamenAnalisis2PrimerParcial
                     json = ((IEnumerable)((FieldInfo)memberInfo).GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element) + ", ");
                 else
                     json = ((IEnumerable)((PropertyInfo)memberInfo).GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element) + ", ");
-                if (json.EndsWith(", "))
-                    json = json.Remove(json.LastIndexOf(", ", StringComparison.Ordinal), 2);
+                json = TrimCommas(json);
                 json += "]";
             }
             else if (!type.IsPrimitive)
@@ -76,6 +91,13 @@ namespace ExamenAnalisis2PrimerParcial
                         json += Serialize(((PropertyInfo)memberInfo).GetValue(classobject)) + ", ";
             }
             return json;
+        }
+
+        private static string TrimCommas(string serializedObject)
+        {
+            if (serializedObject.EndsWith(", "))
+                serializedObject = serializedObject.Remove(serializedObject.LastIndexOf(", ", StringComparison.Ordinal), 2);
+            return serializedObject;
         }
 
         private string GetMemberName(MemberInfo memberInfo)
