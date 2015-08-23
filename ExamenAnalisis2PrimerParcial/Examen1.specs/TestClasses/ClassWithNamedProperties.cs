@@ -4,10 +4,10 @@ namespace Examen1.specs.TestClasses
 {
     public class ClassWithNamedProperties : IClass
     {
-        [JSONName("Nombre")]
+        [JsonName("Nombre")]
         public string Name { get; set; }
 
-        [JSONName("Identificacion")]
+        [JsonName("Identificacion")]
         public int ID { get; set; }
     }
 }

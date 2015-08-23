@@ -27,7 +27,7 @@ namespace ExamenAnalisis2PrimerParcial
             }
             if (!classType.IsPrimitive && !(classType == typeof(IEnumerable<>)))
             {
-                MemberInfo[] objectElements =
+                var objectElements =
                     classType.GetFields(BindingFlags.Public | BindingFlags.Instance).Cast<MemberInfo>()
                         .Concat(classType.GetProperties(BindingFlags.Public | BindingFlags.Instance)).ToArray();
                 serializedObject = objectElements.Aggregate(serializedObject,
@@ -47,7 +47,7 @@ namespace ExamenAnalisis2PrimerParcial
         private string SerializeMember(Object classobject, MemberInfo memberInfo, string json)
         {
             var type = GetMemberType(memberInfo);
-            string memberName = GetMemberName(memberInfo);
+            var memberName = GetMemberName(memberInfo);
             if (_acceptedDataTypes.Contains(type))
             {
                 json += "'" + memberName + "' : '";
@@ -80,11 +80,11 @@ namespace ExamenAnalisis2PrimerParcial
 
         private string GetMemberName(MemberInfo memberInfo)
         {
-            string memberName = memberInfo.Name;
+            var memberName = memberInfo.Name;
             var memberAttributes = memberInfo.GetCustomAttributes(true);
             foreach (var memberAttribute in memberAttributes)
             {
-                var jsonname = memberAttribute as JSONName;
+                var jsonname = memberAttribute as JsonName;
                 if (jsonname != null)
                     memberName = jsonname.Name;
             }

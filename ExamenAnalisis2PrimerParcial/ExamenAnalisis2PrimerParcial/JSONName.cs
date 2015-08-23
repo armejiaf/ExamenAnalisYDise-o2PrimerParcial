@@ -1,11 +1,11 @@
 ﻿namespace ExamenAnalisis2PrimerParcial
 {
     [System.AttributeUsage(System.AttributeTargets.Field | System.AttributeTargets.Property)]
-    public class JSONName : System.Attribute
+    public class JsonName : System.Attribute
     {
         public string Name;
 
-        public JSONName(string name)
+        public JsonName(string name)
         {
             Name = name;
         }

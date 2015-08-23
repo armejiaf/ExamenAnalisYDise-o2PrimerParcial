@@ -422,6 +422,38 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Return class with all types and inner class with all types")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "JSONSerializer")]
+        public virtual void ReturnClassWithAllTypesAndInnerClassWithAllTypes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Return class with all types and inner class with all types", ((string[])(null)));
+#line 105
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "ID",
+                        "Salary",
+                        "Birthday"});
+            table3.AddRow(new string[] {
+                        "Allan",
+                        "3",
+                        "10000.32",
+                        "1335205592410"});
+#line 106
+        testRunner.Given("I have a class with all types and inner class with all types", ((string)(null)), table3, "Given ");
+#line 109
+        testRunner.When("I serialize", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 110
+        testRunner.Then("the result should be \"{\'Name\' : \'Allan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Birt" +
+                    "hday\' : \'4/23/2012 6:26:32 PM\', \'MyClassArray\' : [{}, {\'ID\' : \'4\'}, {\'Name\' : \'A" +
+                    "llan\', \'ID\' : \'3\', \'Salary\' : \'10000.32\', \'Birthday\' : \'4/23/2012 6:26:32 PM\'}]}" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

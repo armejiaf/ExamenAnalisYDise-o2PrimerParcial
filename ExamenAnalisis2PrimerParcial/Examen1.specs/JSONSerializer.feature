@@ -101,3 +101,10 @@ Scenario: Return Renamed String and Int Attributes JSON
         Given I have a class with a string Name with value "Allan" and an int ID with value 5
         When I serialize
         Then the result should be "{'Nombre' : 'Allan', 'Identificacion' : '5'}"
+
+Scenario: Return class with all types and inner class with all types
+        Given I have a class with all types and inner class with all types
+		| Name  | ID | Salary   | Birthday      |
+		| Allan | 3  | 10000.32 | 1335205592410 |
+        When I serialize
+        Then the result should be "{'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '4/23/2012 6:26:32 PM', 'MyClassArray' : [{}, {'ID' : '4'}, {'Name' : 'Allan', 'ID' : '3', 'Salary' : '10000.32', 'Birthday' : '4/23/2012 6:26:32 PM'}]}"

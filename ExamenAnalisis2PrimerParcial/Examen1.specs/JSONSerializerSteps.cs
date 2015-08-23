@@ -148,6 +148,34 @@ namespace Examen1.specs
             _elementToSerialize = new ClassWithNamedProperties {ID = p1, Name = p0};
         }
 
+        [Given(@"I have a class with all types and inner class with all types")]
+        public void GivenIHaveAClassWithAllTypesAndInnerClassWithAllTypes(Table table)
+        {
+            foreach (var tableRow in table.Rows)
+            {
+                _elementToSerialize = new ClassWithBasicTypesAndClassArray()
+                {   
+                    Name = tableRow["Name"],
+                    ID = int.Parse(tableRow["ID"]),
+                    Salary = float.Parse(tableRow["Salary"]),
+                    Birthday = new DateTime(1970, 1, 1).AddMilliseconds(double.Parse(tableRow["Birthday"])),
+                    MyClassArray = new List<IClass> 
+                    { 
+                        new EmptyClass(),
+                        new ClassWithId{ID = 4}, 
+                        new ClassWithBasicTypes
+                        {
+                            Name = tableRow["Name"],
+                            ID = int.Parse(tableRow["ID"]),
+                            Salary = float.Parse(tableRow["Salary"]),
+                            Birthday = new DateTime(1970, 1, 1).AddMilliseconds(double.Parse(tableRow["Birthday"]))
+                        } 
+                    }
+                };
+            }
+        }
+
+
         [When(@"I serialize")]
         public void WhenISerialize()
         {
