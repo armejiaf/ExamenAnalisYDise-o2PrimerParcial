@@ -10,7 +10,6 @@ C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistema
 C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 1\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\obj\Debug\ExamenAnalisis2PrimerParcial.pdb
 C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 1\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\bin\Debug\ExamenAnalisis2PrimerParcial.exe
 C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 1\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\bin\Debug\ExamenAnalisis2PrimerParcial.pdb
-C:\Users\Slyther\Desktop\Unitec\2015 Trimestre III\Analisis y Disenio de Sistemas II\Examen 1\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\obj\Debug\ExamenAnalisis2PrimerParcial.csprojResolveAssemblyReference.cache
 C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\bin\Debug\ExamenAnalisis2PrimerParcial.exe.config
 C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\obj\Debug\ExamenAnalisis2PrimerParcial.exe
 C:\Users\Javier\Documents\GitHub\ExamenAnalisYDise-o2PrimerParcial\ExamenAnalisis2PrimerParcial\ExamenAnalisis2PrimerParcial\obj\Debug\ExamenAnalisis2PrimerParcial.pdb

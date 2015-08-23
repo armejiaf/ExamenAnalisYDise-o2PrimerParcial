@@ -16,7 +16,7 @@ namespace ExamenAnalisis2PrimerParcial
             typeof(DateTime)
         };
 
-        private readonly List<Type>  _dataTypesWithQuotes = new List<Type>
+        private readonly List<Type> _dataTypesWithQuotes = new List<Type>
         {
             typeof(String),
             typeof(DateTime)
@@ -58,38 +58,56 @@ namespace ExamenAnalisis2PrimerParcial
             var type = GetMemberType(memberInfo);
             var memberName = GetMemberName(memberInfo);
             if (_acceptedDataTypes.Contains(type))
-            {
-                if (_dataTypesWithQuotes.Contains(type))
-                    json += "'" + memberName + "' : '";
-                else
-                    json += "'" + memberName + "' : ";
-                if (memberInfo is FieldInfo)
-                    json += (String.IsNullOrEmpty("" + ((FieldInfo)memberInfo).GetValue(classobject)) ? "null" : ((FieldInfo)memberInfo).GetValue(classobject)) + "";
-                else
-                    json += (String.IsNullOrEmpty("" + ((PropertyInfo)memberInfo).GetValue(classobject)) ? "null" : ((PropertyInfo)memberInfo).GetValue(classobject)) + "";
-                if (_dataTypesWithQuotes.Contains(type))
-                    json += "', ";
-                else
-                    json += ", ";
-            }
+                json = SerializeAcceptedMember(classobject, memberInfo, json, type, memberName);
             else if (type.GetInterfaces().Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
-            {
-                json += "'" + memberName + "' : [";
-                if (memberInfo is FieldInfo)
-                    json = ((IEnumerable)((FieldInfo)memberInfo).GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element) + ", ");
-                else
-                    json = ((IEnumerable)((PropertyInfo)memberInfo).GetValue(classobject)).Cast<object>().Aggregate(json, (current, element) => current + Serialize(element) + ", ");
-                json = TrimCommas(json);
-                json += "]";
-            }
+                json = SerializeEnumerable(classobject, memberInfo, json, memberName);
             else if (!type.IsPrimitive)
-            {
-                if (memberInfo is FieldInfo)
-                    json += Serialize(((FieldInfo) memberInfo).GetValue(classobject)) + ", ";
-                else
-                    if(((PropertyInfo)memberInfo).GetIndexParameters().Length == 0)
-                        json += Serialize(((PropertyInfo)memberInfo).GetValue(classobject)) + ", ";
-            }
+                json = SerializeNonPrimitiveMember(classobject, memberInfo, json);
+            return json;
+        }
+
+        private string SerializeNonPrimitiveMember(object classobject, MemberInfo memberInfo, string json)
+        {
+            if (memberInfo is FieldInfo)
+                json += Serialize(((FieldInfo) memberInfo).GetValue(classobject)) + ", ";
+            else if (((PropertyInfo) memberInfo).GetIndexParameters().Length == 0)
+                json += Serialize(((PropertyInfo) memberInfo).GetValue(classobject)) + ", ";
+            return json;
+        }
+
+        private string SerializeEnumerable(object classobject, MemberInfo memberInfo, string json, string memberName)
+        {
+            json += "'" + memberName + "' : [";
+            if (memberInfo is FieldInfo)
+                json = ((IEnumerable) ((FieldInfo) memberInfo).GetValue(classobject)).Cast<object>()
+                    .Aggregate(json, (current, element) => current + Serialize(element) + ", ");
+            else
+                json = ((IEnumerable) ((PropertyInfo) memberInfo).GetValue(classobject)).Cast<object>()
+                    .Aggregate(json, (current, element) => current + Serialize(element) + ", ");
+            json = TrimCommas(json);
+            json += "]";
+            return json;
+        }
+
+        private string SerializeAcceptedMember(object classobject, MemberInfo memberInfo, string json, Type type,
+            string memberName)
+        {
+            if (_dataTypesWithQuotes.Contains(type))
+                json += "'" + memberName + "' : '";
+            else
+                json += "'" + memberName + "' : ";
+            if (memberInfo is FieldInfo)
+                json += (String.IsNullOrEmpty("" + ((FieldInfo) memberInfo).GetValue(classobject))
+                    ? "null"
+                    : ((FieldInfo) memberInfo).GetValue(classobject)) + "";
+            else
+                json += (String.IsNullOrEmpty("" + ((PropertyInfo) memberInfo).GetValue(classobject))
+                    ? "null"
+                    : ((PropertyInfo) memberInfo).GetValue(classobject)) + "";
+            if (_dataTypesWithQuotes.Contains(type))
+                json += "', ";
+            else
+                json += ", ";
             return json;
         }
 
